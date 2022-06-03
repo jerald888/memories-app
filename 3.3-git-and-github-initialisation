@@ -1,0 +1,21 @@
+
+- goto github
+    - create a new repository with same name as "memories-app"
+
+- goto local memories-app folder
+    - open gitbash terminal
+
+        - :: touch .gitignore :: to set a gitignore file
+
+        - open .gitignore file...
+
+            - add the following pattern to ignore all .txt and .md files to exclure my notes from tracking and commit
+                - *.txt
+                - *.md
+
+        - now initialize git inside the folder using command
+            - :: git init
+
+
+
+
