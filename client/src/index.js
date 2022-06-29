@@ -4,10 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {legacy_createStore, applyMiddleware, compose}  from "redux" // 12.4
+import {Provider} from "react-redux" // 12.4
+import thunk from "redux-thunk" // 12.4
+import reducers from "./reducers/combineReducer.js" // 12.4
+
+const store = legacy_createStore(reducers, compose(applyMiddleware(thunk))) /* 12.4 */
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store = {store}>  {/* 12.4 */}
+      
+      <App />
+
+    </Provider>
   </React.StrictMode>
 );
 
