@@ -19,6 +19,10 @@ import { useDispatch, useSelector } from 'react-redux' /* 18.1.4 */
 import { currentIdAction } from '../../../actions/currentIdAction.js' /* 18.1.4 */
 import { useEffect } from 'react' /* 18.1.4 */
 
+import { deletePostAction } from '../../../actions/deletePostAction.js' /* 20 */
+
+import { likePostAction } from '../../../actions/likePostAction.js' /* 21 */
+
 
 
 function Post({post}) { /* 10.1 */
@@ -33,6 +37,25 @@ const handleEdit = () => {
 } /* 18.1.4 */
 
 // useSelector(states => console.log(states.currentId)) /* 18.1.4 */
+
+const handleDelete = () => /* 20 */ {
+  const postId = post._id /* 20 */
+  dispatch(deletePostAction(postId))  /* 20 */
+  // console.log(postId)
+  // console.log("deleted")
+} /* 20 */
+
+
+const handleLike = () => /* 21 */ {
+  const postId = post._id;
+  // console.log(post.likeCount);
+  // console.log(postId);
+  // console.log("liked");
+  dispatch(likePostAction(postId));
+
+} /* 21 */
+
+
 
 
   return (
@@ -58,20 +81,20 @@ const handleEdit = () => {
          <Typography sx={classes.title} variant="h5" gutterBottom>{post.title}</Typography>  {/* 17.2 */} {/* edit 18 */}
        <CardContent>  {/* 17.2 */}
 
-         <Typography sx={classes.title} variant="h5" gutterBottom>{post.message}</Typography>  {/* 17.2 */}
+         <Typography sx={classes.title} variant="body2" color="textSecondary" component="p" gutterBottom>{post.message}</Typography>  {/* 17.2 */}
 
        </CardContent>  {/* 17.2 */}
 
        <CardActions sx={classes.cardActions}>  {/* 17.2 */}
-        <Button size="small" onClick={() => {}}>
+        <Button size="small" onClick={handleLike}> {/* 21 handleLike */}
           <ThumbUpIcon fontSize='small'/>  {/* 17.2 */}
-          Like
+          &nbsp; Like &nbsp;
           {post.likeCount}  {/* 17.2 */}
         </Button>  {/* 17.2 */}
-        <Button size="small" onClick={() => {}}>
+        <Button size="small" onClick={handleDelete}>
           <DeleteIcon fontSize='small'/>  {/* 17.2 */}
           Delete
-        </Button> {/* 17.2 */}
+        </Button> {/* 17.2 */} {/* 20 handleDeleter */}
        </CardActions> {/* 17.2 */}
 
     </Card> /* 17.2 */ 
@@ -79,3 +102,7 @@ const handleEdit = () => {
 }
 
 export default Post /* 10.1 */
+
+// ***** line 30:  always make it a habit to store outside value as a separate variable inside a function..... here it is postId....
+
+// ***** line 91: adding <space> inside jsx won't add space inside the view.... instead add code &nbsp

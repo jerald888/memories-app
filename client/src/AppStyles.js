@@ -8,6 +8,7 @@ export const appBarStyle = {
 } /* 10.3 */
 
 export const headingStyle = {
+    
     color: 'rgba(0,183,255, 1)'
 } /* 10.3 */
 

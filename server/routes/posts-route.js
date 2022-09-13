@@ -4,6 +4,12 @@ import { getPosts } from "../controllers/posts-controller.js"; // 8.1
 
 import { createPosts } from "../controllers/posts-controller.js"; // 9.1
 
+import { updatePost } from "../controllers/posts-controller.js"; // 18.2.1
+
+import { deletePost } from "../controllers/posts-controller.js";/* 20 */
+
+import { likePost } from "../controllers/posts-controller.js"; /* 21 */
+
 const router = express.Router() // 7.1
 
 router.get("/", getPosts /* 8.1 */  /* (req, res) => {
@@ -12,4 +18,11 @@ router.get("/", getPosts /* 8.1 */  /* (req, res) => {
 
 router.post("/", createPosts) // 9.1
 
-export default router
+router.patch("/:id", updatePost) /* 18.2.1 */
+
+router.delete("/:id", deletePost) /* 20 */
+
+router.patch("/:id/likePost", likePost) /* 21 */
+
+export default router 
+

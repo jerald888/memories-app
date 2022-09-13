@@ -9,10 +9,18 @@ import Grid from '@mui/material/Grid'; // 17.1
 
 import { classes, theme } from './postsStyles.js'; // 17.1
 
+import { useEffect } from "react"; // 12.5
+import { useDispatch } from "react-redux"; // 12.5
+import { getPostsAction } from "../../actions/postsAction"; // 12.5
+
+
+
 
 function Posts() { /* 10.1 */
 
 const posts = useSelector(state => state.posts) /* 12.6 */
+
+
  
 // console.log(posts)  /* 12.6 */
 

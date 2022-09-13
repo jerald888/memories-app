@@ -23,7 +23,9 @@ import { createPostsAction } from "../../actions/createPostsAction"; /* 14.3 */
 
 import { useSelector } from "react-redux"; /* 18.1.5 */
 import { useEffect } from "react"; /* 18.1.5 */
-import {currentIdAction} from "../../actions/currentIdAction.js"
+import {currentIdAction} from "../../actions/currentIdAction.js" /* 18.1.5 */
+
+import { editPostAction } from "../../actions/editPostAction"; /* 18.2 */
 
 
 
@@ -62,22 +64,13 @@ function Form() {
     setPostData({ ...postData, message: event.target.value });
   }; /* 13.1 */
   const handleTags = (event) => {
-    setPostData({ ...postData, tags: event.target.value });
+    setPostData({ ...postData, tags: event.target.value.split(",") });
   }; /* 13.1 */
   
   const handleImage = ({ base64 }) => {
     setPostData({ ...postData, imageFile: base64 });
   }; /* 13.1 */
-  
-  const handleSubmit = (e) => {
-    e.preventDefault(); /* 14.3 */
-    // console.log(postData)
-    
-    dispatch(createPostsAction(postData)); /* 14.3 */
-    
-    handleClear() /* 18.1 */
-  }; /* 13.1 */
-  
+
   const handleClear = () => {
     setPostData({ creator: "",
     title: "",
@@ -88,6 +81,20 @@ function Form() {
     dispatch(currentIdAction(null)) /* 18.1.5 */
 
   }; /* 18.1*/
+  
+  const handleSubmit = (e) => {
+    e.preventDefault(); /* 14.3 */
+    // console.log(postData)
+    if(!post) /* 18.2 */{  
+      dispatch(createPostsAction(postData)); /* 14.3 */
+    } else /* 18.2 */ {
+      dispatch(editPostAction(postData, currentId)) /* 18.2 */
+    } /* 18.2 */
+    
+    handleClear() /* 18.1 */
+  }; /* 13.1 */
+  
+  
   
   
   return (

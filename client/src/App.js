@@ -22,11 +22,16 @@ import { useSelector } from "react-redux"; /* 999 */
 
 function App() {
   const dispatch = useDispatch() /* 12.5 */
+
+  // const currentId = useSelector(states => states.currentId)
+  
+
+  // console.log(useSelector(states => console.log(states.posts)))
   
   useEffect(() => { /* 12.5 */
-    
-    dispatch(getPostsAction()) /* 12.5 */
-  }, [dispatch]) /* 12.5 */
+  dispatch(getPostsAction()) /* 12.5 */
+  console.log("app use effect")
+  }, []) /* 12.5 */
   
 
 
@@ -37,10 +42,10 @@ function App() {
       <AppBar sx={appBarStyle} position="static" color="inherit">
         {" "}
         {/* 10.2 */}
-        <Typography sx={headingStyle} vairent="h2" align="center">
+        <Typography sx={headingStyle} vairent="h2" align="right">
           {" "}
           {/* 10.2 */}
-          Memories
+          MOOD BOARD
         </Typography>{" "}
         {/* 10.2 */}
         <img sx={imageStyle} src={memories} alt="memories" height="70" />
