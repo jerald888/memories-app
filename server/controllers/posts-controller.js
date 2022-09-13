@@ -16,11 +16,10 @@ export const getPosts = async /* 9.2 */ (req, res) => {
 } /* 8.1 */
 
 export const createPosts = async /* 9.3 */ (req, res) => { 
-
+    
     const post = req.body /* 9.3 */
-
     const newPost = new PostMessage(post) /* 9.3 */
-
+    
     try { /* 9.3 */
         
         await newPost.save() /* 9.3 */

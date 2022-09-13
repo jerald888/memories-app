@@ -4,6 +4,7 @@ export default (posts = [], action) => { /* 12.2 */
       return action.payload /* 12.2 */
 
     case "CREATE_POSTS":
+      // console.log({posts})
       return [...posts, action.payload]
 
     default: /* 12.2 */

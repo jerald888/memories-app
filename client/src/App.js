@@ -15,15 +15,17 @@ import { useEffect } from "react"; // 12.5
 import { useDispatch } from "react-redux"; // 12.5
 import { getPostsAction } from "./actions/postsAction"; // 12.5
 
-function App() {
+import { useSelector } from "react-redux"; /* 999 */
 
+
+
+
+function App() {
   const dispatch = useDispatch() /* 12.5 */
   
   useEffect(() => { /* 12.5 */
     
     dispatch(getPostsAction()) /* 12.5 */
-  
-    
   }, [dispatch]) /* 12.5 */
   
 
