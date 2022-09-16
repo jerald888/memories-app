@@ -19,6 +19,10 @@ app.use(cors()) /* 4.1 */
 
 app.use("/posts", postRoutes) /* 7.1 */
 
+app.get("/", (req, res) => {
+  res.send("Hello to Mood-book app")
+}) /* 24 */
+
 // const CONNECTION_URL = "<url from mongodb colud>" /* 6.1 */ /* 23  commented this url and stored inside .env file */
 
 

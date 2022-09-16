@@ -1,6 +1,9 @@
 import axios from "axios" // 10.4
 
-const url = "http://localhost:5000/posts" // 10.4
+/* const url = "http://localhost:5000/posts" // 10.4 */ /* 24 commented out url to replace it with heroku backend url in the following line */
+
+
+const url = "https://mood-book-app.herokuapp.com/posts" /* 24 */
 
 // api call to fetch posts from the backend
 
@@ -27,3 +30,5 @@ export const likePost = (postId) => {
 // **** the url in inside each function is the endpoint set at the BACKEND
 
 // **** always RETURN the get/patch etc api commands inside the funtion.... else await data response from the server will show undefined inside the front end
+
+// **** https and NOT http in HEROKU URL.... else error
